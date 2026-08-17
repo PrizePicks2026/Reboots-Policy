@@ -716,6 +716,9 @@ function initSpielGenerator(sportId='nba'){
   if (!spielPlayer) return;
 
   const isNFL = sportId === 'nfl';
+  const isWNBA = sportId === 'wnba';
+  const subjPronoun = isWNBA ? 'She' : 'He';
+  const possPronoun = isWNBA ? 'her' : 'his';
 
   function buildSpiel(){
     const name = spielPlayer.value.trim() || "[Player's Name]";
@@ -730,16 +733,16 @@ function initSpielGenerator(sportId='nba'){
 
 I truly understand your concern regarding ${name}, and I appreciate you taking the time to inquire.
 
-After a thorough review with our scoring team, we've confirmed that ${name} is not eligible for a reboot. He did participate in the second half of the game—specifically appearing on a snap at the ${mins} in the ${qtr}—which finalizes the score and unfortunately makes it unable to be adjusted.
+After a thorough review with our scoring team, we've confirmed that ${name} is not eligible for a reboot. ${subjPronoun} did participate in the second half of the game—specifically appearing on a snap at the ${mins} in the ${qtr}—which finalizes the score and unfortunately makes it unable to be adjusted.
 
 I know this might not be the outcome you were hoping for, and I genuinely appreciate your understanding. If you have any other questions or need further clarification, please don't hesitate to reach out. We're always here to help.`;
     } else {
       plain =
 `Thank you so much for reaching out. I truly understand your concern regarding ${name}, and I appreciate you taking the time to inquire.
 
-After a thorough review with our scoring team, we've confirmed that ${name} is not eligible for a Reboot. He played ${mins} in the ${qtr}, which confirms his appearance in the second half.
+After a thorough review with our scoring team, we've confirmed that ${name} is not eligible for a Reboot. ${subjPronoun} played ${mins} in the ${qtr}, which confirms ${possPronoun} appearance in the second half.
 
-As a reminder, Reboots can only be applied to players who played in the first half but did not return or appear in the second half. Since ${last} appeared in the second half, his projection is finalized and cannot be adjusted under current PrizePicks policy.
+As a reminder, Reboots can only be applied to players who played in the first half but did not return or appear in the second half. Since ${last} appeared in the second half, ${possPronoun} projection is finalized and cannot be adjusted under current PrizePicks policy.
 
 I know this might not be the outcome you were hoping for, and I genuinely appreciate your understanding. If you have any other questions or need further clarification, please don't hesitate to reach out. We're always here to help.`;
     }
